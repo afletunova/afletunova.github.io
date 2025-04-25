@@ -1,7 +1,7 @@
 baseURL = 'https://afletunova.github.io/'
 languageCode = 'en-us'
 theme = 'JuiceBar'
-title = 'My New Hugo Blog'
+title = "Jule's Notes"
 
 [params]
 author = 'Yulia Afletunova'

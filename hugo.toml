@@ -11,7 +11,6 @@ paginate = 5
 Title = "Jule's Notes"
 content = "I'm Yulia, or Jules, and I collect my notes and essays here♡"
 imageUrl = "/images/avatar.jpg"
-#ShowReadingTime = true
 
 defaultContentLanguage = 'en'
 [languages]

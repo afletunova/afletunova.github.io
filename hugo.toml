@@ -1,0 +1,82 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+theme = 'JuiceBar'
+title = 'My New Hugo Blog'
+
+[params]
+author = 'Yulia Afletunova'
+description = "Blog"
+authorImage = "/images/profile.jpg"
+paginate = 5 
+Title = "Jule's Notes"
+content = "I'm Yulia, or Jules, and I collect my notes and essays here♡"
+imageUrl = "/images/avatar.jpg"
+#ShowReadingTime = true
+
+defaultContentLanguage = 'en'
+[languages]
+[languages.en]
+weight = 1
+languageName = 'English'
+[languages.ru]
+weight = 2
+languageName = 'Русский'
+
+# To add a new social icon 
+# More social icons can be found in JuiceBar\layouts\partials\svg.html.
+[[params.social]]
+name = "Github"
+url = "https://github.com/afletunova"
+[[params.social]]
+name = "telegram"
+url = "https://t.me/yr_afletunova"
+[[params.social]]
+name = "twitter"
+url = "https://twitter.com/yafletunova"
+[[params.social]]
+name = "email"
+url = "mailto:afletunova.yulia@gmail.com"
+#[[params.social]]
+#name = "instagram"
+#url = "your_url"
+#[[params.social]]
+#name = "mastodon"
+#url = "your_url"
+#[[params.social]]
+#name = "reddit"
+#url = "your_url"
+#[[params.social]]
+#name = "stackoverflow"
+#url = "your_url"
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+
+# To add a new navigation link
+[[menu.main]]
+name = "About"
+url = "/about"
+[[menu.main]]
+name = "Blog"
+url = "/post"
+[[menu.main]]
+name = "Categories"
+url = "/categories"
+
+# If using the giscus commenting system
+#[params.giscus]
+#repo = "ENTER REPO HERE"
+#repoID = "ENTER REPO ID HERE"
+#category = "ENTER CATEGORY NAME HERE"
+#categoryID = "ENTER CATEGORY ID HERE"
+#mapping = "og:title"
+#reactionsEnabled = "1"
+#emitMetadata = "0"
+#inputPosition = "bottom"
+#lang = "en"
+#loading = "lazy"
+
+# Used for outputting the documentation (required).
+[outputs]
+home = ["HTML", "RSS", "JSON"]

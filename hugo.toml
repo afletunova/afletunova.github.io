@@ -11,6 +11,7 @@ paginate = 5
 Title = "Jule's Notes"
 content = "I'm Yulia, or Jules, and I collect my notes and essays here♡"
 imageUrl = "/images/avatar.jpg"
+disableGoogleAnalytics = true
 
 defaultContentLanguage = 'en'
 [languages]

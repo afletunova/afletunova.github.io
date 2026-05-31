@@ -1,0 +1,94 @@
+/* Light mode */
+:root {
+  --theme:        #E2EBE9;
+  --entry:        #d6e2df;
+  --primary:      #394251;
+  --secondary:    #5a6272;
+  --tertiary:     #c4d4d1;
+  --content:      #394251;
+  --hljs-bg:      #d0dbd8;
+  --code-bg:      #d0dbd8;
+  --border:       #b8cac7;
+
+  --accent:       #6F7659;
+  --accent-hover: #4f3733;
+}
+
+/* Dark mode */
+.dark {
+  --theme:        #020202;
+  --entry:        #0f1f1c;
+  --primary:      #FFE5DA;
+  --secondary:    #c4a99e;
+  --tertiary:     #1a2e2a;
+  --content:      #FFE5DA;
+  --hljs-bg:      #0f1f1c;
+  --code-bg:      #0f1f1c;
+  --border:       #2a3d39;
+
+  --accent:       #FF7E79;
+  --accent-hover: #ff9e9a;
+}
+
+/* Apply accent to links */
+a,
+.post-title a,
+.entry-title a {
+  color: var(--accent);
+}
+
+a:hover,
+.post-title a:hover,
+.entry-title a:hover {
+  color: var(--accent-hover);
+}
+
+/* Nav links */
+.nav a {
+  color: var(--primary);
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+/* Tags */
+.post-tags a {
+  background: var(--tertiary);
+  color: var(--primary);
+  border: 1px solid var(--border);
+}
+
+.post-tags a:hover {
+  background: var(--accent);
+  color: var(--theme);
+  border-color: var(--accent);
+}
+
+/* Logo/site title */
+.logo a {
+  color: var(--primary);
+}
+
+/* Selection highlight */
+::selection {
+  background: var(--accent);
+  color: var(--theme);
+}
+
+/* Inline code */
+code {
+  background: var(--code-bg);
+  color: var(--primary);
+}
+
+/* Horizontal rule */
+hr {
+  border-color: var(--border);
+}
+
+/* Blockquote left border */
+blockquote {
+  border-left: 3px solid var(--accent);
+  color: var(--secondary);
+}

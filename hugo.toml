@@ -35,8 +35,12 @@ buildFuture = false
     url = "https://github.com/afletunova"
 
   [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/afletunova/"
+
+  [[params.socialIcons]]
     name = "email"
-    url = "mailto:info@ritapersonaldata.com"
+    url = "mailto:afletunova.yulia@gmail.com"
 
 [taxonomies]
   tag = "tags"
@@ -49,21 +53,32 @@ buildFuture = false
     name = "All posts"
     url = "/posts/"
     weight = 10
+    [menu.main.params]
+      nameRu = "Все посты"
   [[menu.main]]
     identifier = "tags"
     name = "Tags"
     url = "/tags/"
     weight = 20
+    [menu.main.params]
+      nameRu = "Теги"
   [[menu.main]]
     identifier = "languages"
     name = "Languages"
     url = "/languages/"
     weight = 30
+    [menu.main.params]
+      nameRu = "Язык"
   [[menu.main]]
     identifier = "about"
     name = "About"
     url = "/about/"
     weight = 40
+    [menu.main.params]
+      nameRu = "Обо мне"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+
+[markup.goldmark.renderer]
+  unsafe = true

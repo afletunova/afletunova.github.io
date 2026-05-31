@@ -1,0 +1,65 @@
+/* Language toggle buttons */
+.intro-lang-toggle {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.intro-lang-btn {
+    background: none;
+    border: none;
+    color: var(--secondary);
+    font-size: 0.7rem;
+    font-family: inherit;
+    padding: 0;
+    line-height: 1;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: color 0.15s;
+}
+
+.intro-lang-btn.active {
+    color: var(--accent);
+}
+
+.intro-lang-btn:hover {
+    color: var(--accent);
+}
+
+.intro-lang-sep {
+    color: var(--border);
+    font-size: 0.75rem;
+}
+
+/* Intro text */
+.intro-text p {
+    margin-bottom: 0.6rem;
+}
+
+/* Divider between personal and pro */
+.intro-divider {
+    margin: 1.2rem 0;
+}
+
+/* Professional block */
+.intro-pro p {
+    color: var(--secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.intro-pro-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    font-size: 0.85rem;
+}
+
+.intro-pro-links a {
+    color: var(--accent);
+}
+
+.intro-pro-links a:hover {
+    color: var(--accent-hover);
+}

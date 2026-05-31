@@ -1,0 +1,16 @@
+figure {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+}
+
+figcaption {
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--secondary);
+    font-style: italic;
+}

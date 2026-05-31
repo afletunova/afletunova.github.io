@@ -1,0 +1,15 @@
+{{- define "main" }}
+{{- $featured := where site.RegularPages "Weight" "!=" 0 }}
+{{- $featured = sort $featured "Weight" "asc" }}
+<header class="page-header">
+    <h1>Featured</h1>
+</header>
+<ul class="featured-list">
+    {{- range $featured }}
+    <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <span class="featured-meta">{{ .Date.Format "2006-01-02" }}</span>
+    </li>
+    {{- end }}
+</ul>
+{{- end }}

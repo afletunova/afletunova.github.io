@@ -1,0 +1,15 @@
+{{- $featured := where site.RegularPages "Weight" "!=" 0 }}
+{{- $featured = sort $featured "Weight" "asc" }}
+{{- if $featured }}
+<div class="sidebar-block">
+    <h3 class="sidebar-heading">Featured</h3>
+    <ul class="sidebar-list">
+        {{- range first 5 $featured }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+        {{- end }}
+    </ul>
+    {{- if gt (len $featured) 5 }}
+    <a class="sidebar-more" href="/featured/">All featured →</a>
+    {{- end }}
+</div>
+{{- end }}

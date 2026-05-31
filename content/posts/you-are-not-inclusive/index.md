@@ -2,6 +2,7 @@
 title: "You Are Not Inclusive"
 date: 2024-05-02
 draft: false
+weight: 3
 tags: ["work", "inclusion", "corporate"]
 languages: ["english"]
 description: "Companies put inclusivity on their landing pages. Then you actually apply."

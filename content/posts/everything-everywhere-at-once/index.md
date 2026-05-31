@@ -1,6 +1,6 @@
 ---
 title: "Everything Everywhere at Once"
-date: 2026-05-31
+date: 2026-05-31T20:02:00+02:00
 draft: false
 tags: ["commonplace", "notes", "stationery", "adhd"]
 languages: ["russian"]

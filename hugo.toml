@@ -1,0 +1,69 @@
+baseURL = "https://afletunova.github.io/"
+languageCode = "en-us"
+title = "afletunova"
+theme = "PaperMod"
+paginate = 10
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+
+[params]
+  author = "Yulia Afletunova"
+  description = "Writing on data, neurotech, tools, and everything else."
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = false
+  ShowCodeCopyButtons = true
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = true
+  tocopen = false
+
+  [params.homeInfoParams]
+    Title = "afletunova"
+    Content = "Data analyst / engineer. Writing in English and Russian on data, neurotech, cognition, tools, and whatever else won't leave me alone."
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/afletunova"
+
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:info@ritapersonaldata.com"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  language = "languages"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "All posts"
+    url = "/posts/"
+    weight = 10
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 20
+  [[menu.main]]
+    identifier = "languages"
+    name = "Languages"
+    url = "/languages/"
+    weight = 30
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 40
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

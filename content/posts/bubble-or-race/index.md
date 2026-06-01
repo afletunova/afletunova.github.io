@@ -2,6 +2,7 @@
 title: "Is it a Bubble yet?"
 date: 2026-06-01T19:11:00+02:00
 draft: false
+weight: 3
 tags: ["ai", "agi", "philosophy", "technology", "ethics"]
 languages: ["english"]
 description: "Exploring whether the current AI boom is a bubble or the beginning of a new era, and reflecting on the philosophical and ethical implications of advancing artificial intelligence."

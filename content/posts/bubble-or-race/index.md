@@ -1,6 +1,6 @@
 ---
 title: "Is it a Bubble yet?"
-date: 2026-05-31T19:11:00+02:00
+date: 2026-06-01T19:11:00+02:00
 draft: false
 tags: ["ai", "agi", "philosophy", "technology", "ethics"]
 languages: ["english"]

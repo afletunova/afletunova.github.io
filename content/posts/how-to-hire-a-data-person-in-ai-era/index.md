@@ -29,7 +29,7 @@ Everyone loses. The desperate candidate lands a job they’re wrong for. The com
 
 The solution I provide here may not work for all companies, teams, and processes. However, I want to describe the process I want to implement myself.
 
-### Write a job description that describes the job.
+### Write a job description that describes the job
 
 Vague JDs attract everyone. Be explicit about what the role is, and what it isn’t.
 
@@ -37,7 +37,7 @@ Vague JDs attract everyone. Be explicit about what the role is, and what it isn�
 
 You’ll lose some applicants (yes, those probably have some catchy labels in their CV) and gain better ones. Move nice-to-haves out of the JD entirely — if it matters, ask about it in the interview. If it doesn’t matter enough to ask about, it wasn’t a requirement.
 
-### Remove easy-apply.
+### Remove easy-apply
 
 A candidate who won’t write two sentences about why they fit the role isn’t a serious candidate. Ask one specific question in the application that requires real experience to answer — something that can’t be answered with a bootcamp pattern.
 
@@ -45,7 +45,7 @@ A candidate who won’t write two sentences about why they fit the role isn’t 
 
 You can’t fake that.
 
-### Ask your own team the same questions.
+### Ask your own team the same questions
 
 See how varied their answers are.
 
@@ -82,7 +82,7 @@ Here’s the actual matter. Assuming we’ve now collected a higher-quality pool
 
 I’ll be talking exclusively about the job I know first-hand, but I truly believe that those practices can be applied to adjacent fields.
 
-## Data (Platform| AI | Analytics) Engineer
+## Data (Platform | AI | Analytics) Engineer
 
 Usually, this role requires the candidate to handle the load of incoming data, organise it in coherent layers, and cover maintenance and idempotence.
 
@@ -280,7 +280,7 @@ Whether a candidate submits a take-home or a portfolio, they are evaluated on th
 
 # Your Homework
 
-## Be honest about the mess.
+## Be honest about the mess
 
 Your pipelines are not perfect. There are trade-offs that were made under pressure, schemas that were half-migrated, decisions that made sense at the time and don’t anymore. That’s how production works.
 

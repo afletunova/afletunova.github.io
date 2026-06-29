@@ -33,9 +33,9 @@
                 {{- end }}
 
                 <span class="nav-sep">|</span>
-                <button id="btn-lang-ru" class="intro-lang-btn active" onclick="switchLang('ru')" aria-label="Русский">RU</button>
+                <button id="btn-lang-ru" class="intro-lang-btn" onclick="switchLang('ru')" aria-label="Русский">RU</button>
                 <span class="intro-lang-sep">/</span>
-                <button id="btn-lang-en" class="intro-lang-btn" onclick="switchLang('en')" aria-label="English">EN</button>
+                <button id="btn-lang-en" class="intro-lang-btn active" onclick="switchLang('en')" aria-label="English">EN</button>
             </div>
         </div>
 
@@ -63,7 +63,7 @@
 
 <script>
 (function() {
-    var saved = localStorage.getItem('siteLang') || 'ru';
+    var saved = localStorage.getItem('siteLang') || 'en';
     applyLang(saved);
 })();
 

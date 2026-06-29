@@ -2,6 +2,7 @@
 title: "How to Hire a Data Person in the AI Era"
 date: 2026-06-29
 draft: false
+weight: 2
 tags: ["data", "hiring", "engineering", "ai"]
 languages: ["english"]
 description: "Most hiring processes are optimised to filter, not to find. A structural look at what to fix, from someone who has been on both sides."

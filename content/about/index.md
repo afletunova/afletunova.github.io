@@ -5,7 +5,7 @@ url: "/about/"
 summary: "about"
 ---
 
-<div class="lang-ru">
+<div class="lang-ru" style="display:none">
 
 Привет, я Юля — аналитик и инженер данных, пишу в этом блоге обо всём, что не даёт покоя.
 
@@ -21,7 +21,7 @@ summary: "about"
 
 </div>
 
-<div class="lang-en" style="display:none">
+<div class="lang-en">
 
 Hi, I'm Yulia — data analyst and engineer, writing here about everything that won't leave me alone.
 

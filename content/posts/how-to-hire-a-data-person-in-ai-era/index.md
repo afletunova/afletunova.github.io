@@ -45,7 +45,7 @@ A candidate who won’t write two sentences about why they fit the role isn’t 
 
 You can’t fake that.
 
-## Ask your own team the same questions.
+### Ask your own team the same questions.
 
 See how varied their answers are.
 
@@ -57,15 +57,15 @@ Do you know how this works in your own team? How does your own process look? Wha
 
 This calibrates your expectations and reveals what your team actually values — not what you think it values. If five engineers answer the same question five different ways, that’s a signal about your culture. Use these answers internally to compare against AI output and candidate responses. You can share them with candidates after they join, as onboarding context.
 
-# The AI policy has two stages, and they’re different.
+### The AI policy has two stages, and they’re different.
 
 Here I am trying to solve the issue with a low-quality candidate pool. As a candidate myself, I hate filling those surveys; however, if the role is perfect for me, I am proud to answer. The issue is in the spread.
 
-## Stage one — the application screen: no AI
+#### Stage one — the application screen: no AI
 
 Ask a specific experience question that requires real context to answer. Run it through AI yourself first and note what a generic, pattern-matched answer looks like. If a candidate’s response matches that pattern too closely — flag it, don’t reject. Ask follow-up questions. If they want the job, they’ll explain themselves. This step can potentially be automated too.
 
-## Stage two — the take-home task: AI is allowed and expected
+#### Stage two — the take-home task: AI is allowed and expected
 
 Today the signal shifts from “what do you know” to “how do you work.” Can they direct AI toward the right problem? Do they validate the output or blindly trust it? Can they explain every decision when you ask them about it in a follow-up conversation? If so, that’s the job, and that’s what you need on your team.
 
@@ -86,7 +86,7 @@ I’ll be talking exclusively about the job I know first-hand, but I truly belie
 
 Usually, this role requires the candidate to handle the load of incoming data, organise it in coherent layers, and cover maintenance and idempotence.
 
-## Skills worth assessing
+### Skills worth assessing
 
 | Skill                                | Why it matters                                                                |
 | ------------------------------------ | ----------------------------------------------------------------------------- |
@@ -104,18 +104,18 @@ Usually, this role requires the candidate to handle the load of incoming data, o
 | LLM integration patterns             | Prompt engineering, validation, when *not* to use an LLM                      |
 | Embedding pipelines                  | How to chunk, embed, update, version vectors at scale                         |
 Your specific role might require only couple of those skills, or their full combination. However, I will try to describe the process how I see it for all of them.
-### Skills NOT relevant for most data roles
+#### Skills NOT relevant for most data roles
 
 - Leetcode-style algorithm problems: you can argue that your candidate should understand what’s happening under the hood, and I do agree with that. However, I don’t find this skill more valuable than everything else to spend your and candidates’ time on this.
 - Low-level CS (memory management, pointers): same applies here
 - Syntax recall under pressure: especially, in the era of AI, this skill might fully disappear. However, with great working flexibility, syntax recall can be picked up by any good candidate on the job if needed.
 - Backend or frontend system design unrelated to data: that's just not supposed to be something you need to evaluate them for. Leave it for nice-to-haves or a quick follow-up if they’ve mentioned something connected.
 
-## Assessment Methods
+### Assessment Methods
 
 Now, let’s talk about exact ways to assess those skills from the section above. I won’t cover every skill separately; instead, I want to give you a set of possible formats to accommodate a vast pool of candidates, giving everyone the opportunity to show their strengths.
 
-### Take-home project
+#### Take-home project
 
 | Pros                                            | Cons                                                                              |
 | ----------------------------------------------- | --------------------------------------------------------------------------------- |
@@ -126,7 +126,7 @@ Now, let’s talk about exact ways to assess those skills from the section above
 
 **Best for:** SQL modelling, dbt project, pipeline design task, embedding pipeline design, RAG system implementation
 
-### Portfolio review
+#### Portfolio review
 
 | Pros                                                                                  | Cons                                                     |
 | ------------------------------------------------------------------------------------- | -------------------------------------------------------- |
@@ -137,7 +137,7 @@ Now, let’s talk about exact ways to assess those skills from the section above
 
 **Rule:** offer portfolio as a candidate-elected format, evaluated on the same rubric as the take-home. This exists because NDA and IP constraints are real. Forcing a take-home when strong public work already exists wastes everyone’s time. This helps you to make decisions based on results instead of the format.
 
-### Open-source contribution
+#### Open-source contribution
 
 | Pros                                                                    | Cons                                         |
 | ----------------------------------------------------------------------- | -------------------------------------------- |
@@ -146,7 +146,7 @@ Now, let’s talk about exact ways to assess those skills from the section above
 |                                                                         | NDA or employer restrictions may apply       |
 
 **Rule:** optional signal, never a gate. Combine with portfolio.
-### Bring your own work
+#### Bring your own work
 
 | Pros                                                             | Cons                                                    |
 | ---------------------------------------------------------------- | ------------------------------------------------------- |
@@ -156,7 +156,7 @@ Now, let’s talk about exact ways to assess those skills from the section above
 
 **Best for:** senior roles, architecture and design assessment
 
-### Async video explanation
+#### Async video explanation
 
 | Pros                                              | Cons                                          |
 | ------------------------------------------------- | --------------------------------------------- |
@@ -166,7 +166,7 @@ Now, let’s talk about exact ways to assess those skills from the section above
 
 **Rule:** optional, pairs well with portfolio or bring-your-own-work
 
-### Pair programming (async version preferred)
+#### Pair programming (async version preferred)
 
 | Pros                                                                                                                                             | Cons                                                |
 | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- |
@@ -177,7 +177,7 @@ Now, let’s talk about exact ways to assess those skills from the section above
 
 **Not:** greenfield algorithm problems
 
-### System design discussion
+#### System design discussion
 
 | Pros                                                                                       | Cons                                                               |
 | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
@@ -189,7 +189,7 @@ Now, let’s talk about exact ways to assess those skills from the section above
 **Best for:** senior and staff roles
 **For mid-level:** ability to ask good questions without a pre-existing solutions base is sufficient signal.
 
-### Collaborative debugging
+#### Collaborative debugging
 
 | Pros                                               | Cons                                                 |
 | -------------------------------------------------- | ---------------------------------------------------- |
@@ -201,7 +201,7 @@ Now, let’s talk about exact ways to assess those skills from the section above
 **Best for:** data platform, analytics engineering, data engineering roles
 **Scenario examples:** broken dbt model, wrong aggregation, pipeline silently dropping rows, retrieval returning irrelevant results, embedding version mismatch
 
-### Paid trial day
+#### Paid trial day
 
 | Pros                                                   | Cons                                                                    |
 | ------------------------------------------------------ | ----------------------------------------------------------------------- |
@@ -213,7 +213,7 @@ Now, let’s talk about exact ways to assess those skills from the section above
 
 **Rule:** must be paid, no exceptions
 
-### AI-assisted interview
+#### AI-assisted interview
 
 | Pros                                                              | Cons                                                    |
 | ----------------------------------------------------------------- | ------------------------------------------------------- |
@@ -226,7 +226,7 @@ Now, let’s talk about exact ways to assess those skills from the section above
 **Best for:** any role
 **Key signal:** do they think and plan before prompting? Do they question the output?
 
-### Pre-shared case interview
+#### Pre-shared case interview
 
 | Pros                                                            | Cons                                                                 |
 | --------------------------------------------------------------- | -------------------------------------------------------------------- |

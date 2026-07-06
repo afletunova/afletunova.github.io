@@ -76,6 +76,11 @@ buildFuture = false
     weight = 40
     [menu.main.params]
       nameRu = "Обо мне"
+  [[menu.main]]
+    identifier = "almanack"
+    name = "The Almanack"
+    url = "/the-almanack/"
+    weight = 35
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

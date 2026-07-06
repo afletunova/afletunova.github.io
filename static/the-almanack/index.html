@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Almanack | July 6, 2026</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Times New Roman', Times, serif;
+        background: #e8e9ed;
+        color: #1a1a1a;
+        line-height: 1.6;
+        padding: 20px;
+    }
+
+    .newspaper {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: transparent;
+        padding: 0;
+    }
+
+    .masthead {
+        text-align: center;
+        border-bottom: 3px double #000;
+        border-top: 1px solid #000;
+        padding: 15px 0;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .newspaper-name {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 48px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        margin: 12px 0;
+        text-transform: uppercase;
+    }
+
+    .tagline {
+        font-size: 11px;
+        font-style: italic;
+        color: #666;
+        letter-spacing: 1px;
+    }
+
+    .date-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11px;
+        padding: 8px 0;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 18px;
+    }
+
+    .edition {
+        font-weight: bold;
+    }
+
+    .weather-widget {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: 2px solid #384071;
+        padding: 6px 10px;
+        color: #384071;
+        font-size: 9px;
+        line-height: 1.3;
+        min-width: 90px;
+    }
+
+    .weather-main {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 3px;
+    }
+
+    .weather-icon {
+        font-size: 16px;
+    }
+
+    .weather-temp {
+        font-size: 14px;
+        font-weight: 700;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .weather-city {
+        font-size: 8px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .weather-condition {
+        font-size: 9px;
+    }
+
+    .weather-details {
+        font-size: 8px;
+        margin-top: 3px;
+        border-top: 1px solid #384071;
+        padding-top: 3px;
+    }
+
+    @page {
+      size: A4;
+      margin: 15mm;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 15mm;
+      background: white;
+      page-break-after: always;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    /* For screen preview */
+    @media screen {
+      body {
+        background: #e8e9ed;
+        padding: 20px;
+      }
+
+      .page {
+        margin: 0 auto 20px auto;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+    }
+
+    /* For printing */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+      }
+    }
+
+    /* Main Article Styles */
+    .main-article {
+        column-count: 2;
+        column-gap: 30px;
+        text-align: justify;
+        margin-bottom: 30px;
+        column-fill: balance;
+    }
+
+    .main-article h1 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 12px;
+        column-span: all;
+        color: #384071;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .main-article h2 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 18px;
+        font-weight: 700;
+        margin: 16px 0 10px 0;
+        color: #384071;
+    }
+
+    .main-article h3 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 14px;
+        font-weight: 700;
+        margin: 12px 0 6px 0;
+        break-after: avoid;
+        color: #384071;
+    }
+
+    .main-article p {
+        margin-bottom: 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        orphans: 3;
+        widows: 3;
+    }
+
+    .main-article ul {
+        margin: 12px 0 12px 20px;
+        font-size: 12px;
+    }
+
+    .main-article li {
+        margin-bottom: 8px;
+    }
+
+    .main-article a {
+        color: #384071;
+        text-decoration: none;
+        border-bottom: 1px solid #5a6b94;
+    }
+
+    .main-article a:hover {
+        background-color: #d5d7e0;
+    }
+
+    .featured-image {
+        column-span: all;
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .featured-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .featured-image .caption {
+        font-size: 10px;
+        font-style: italic;
+        color: #666;
+        margin-top: 5px;
+    }
+
+    /* Deep-Dive Article Images - inline with column content */
+    .article-image {
+        margin: 10px 0;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .article-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .article-image .caption {
+        font-size: 9px;
+        font-style: italic;
+        color: #666;
+        margin-top: 5px;
+        text-align: center;
+    }
+
+    /* Deep-Dive Article Styles */
+    .article-page {
+        column-count: 2;
+        column-gap: 30px;
+        text-align: justify;
+        margin-bottom: 30px;
+        column-fill: balance;
+    }
+
+    .article-page h1 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 12px;
+        column-span: all;
+        color: #384071;
+    }
+
+    .article-page .article-lead {
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-bottom: 16px;
+        column-span: all;
+        color: #333;
+    }
+
+    .article-page h2 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 16px 0 10px 0;
+        break-after: avoid;
+        page-break-after: avoid;
+        color: #384071;
+    }
+
+    .article-page h3 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 13px;
+        font-weight: 700;
+        margin: 12px 0 6px 0;
+        break-after: avoid;
+        color: #384071;
+    }
+
+    .article-page p {
+        margin-bottom: 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        orphans: 3;
+        widows: 3;
+    }
+
+    .article-page ul {
+        margin: 12px 0 12px 20px;
+        font-size: 12px;
+    }
+
+    .article-page li {
+        margin-bottom: 8px;
+    }
+
+    .article-page a {
+        color: #384071;
+        text-decoration: none;
+        border-bottom: 1px solid #5a6b94;
+    }
+
+    .article-page a:hover {
+        background-color: #d5d7e0;
+    }
+
+    .article-page .article-footer {
+        column-span: all;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 2px solid #384071;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .article-page .article-footer p {
+        margin-bottom: 8px;
+    }
+
+
+    /* Sudoku Styles - Minimalistic */
+    .sudoku-section {
+        margin-bottom: 30px;
+    }
+
+    .sudoku-section h2 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #384071;
+        color: #384071;
+    }
+
+    .sudoku-grid {
+        display: grid;
+        grid-template-columns: repeat(9, 32px);
+        grid-template-rows: repeat(9, 32px);
+        gap: 0;
+        margin: 15px 0;
+        width: fit-content;
+        border: 2px solid #000;
+    }
+
+    .sudoku-cell {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: 'Times New Roman', Times, serif;
+        border: 1px solid #ddd;
+        background: white;
+    }
+
+    .sudoku-cell.filled {
+        color: #000;
+    }
+
+    .sudoku-cell:nth-child(3n) {
+        border-right: 2px solid #000;
+    }
+
+    .sudoku-cell:nth-child(n+19):nth-child(-n+27),
+    .sudoku-cell:nth-child(n+46):nth-child(-n+54) {
+        border-bottom: 2px solid #000;
+    }
+
+    /* Sudoku Solution Grid - Small and Gray */
+    .sudoku-solution-grid {
+        display: grid;
+        grid-template-columns: repeat(9, 7px);
+        grid-template-rows: repeat(9, 7px);
+        gap: 0;
+        margin: 0 auto;
+        width: fit-content;
+        border: 0.5px solid #ddd;
+    }
+
+    .sudoku-solution-cell {
+        width: 7px;
+        height: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4px;
+        font-weight: 400;
+        font-family: 'Times New Roman', Times, serif;
+        border: 0.25px solid #eee;
+        background: #fafafa;
+        color: #bbb;
+    }
+
+    .sudoku-solution-cell:nth-child(3n) {
+        border-right: 0.5px solid #ddd;
+    }
+
+    .sudoku-solution-cell:nth-child(n+19):nth-child(-n+27),
+    .sudoku-solution-cell:nth-child(n+46):nth-child(-n+54) {
+        border-bottom: 0.5px solid #ddd;
+    }
+
+    /* German Section Styles - Minimalistic */
+    .german-section {
+        margin-bottom: 30px;
+    }
+
+    .german-section h2 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #384071;
+        color: #384071;
+    }
+
+    .german-section h3 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 20px 0 10px 0;
+        color: #384071;
+    }
+
+    .german-words ul {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+    }
+
+    .german-words li {
+        margin: 10px 0;
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .german-words li:last-child {
+        border-bottom: none;
+    }
+
+    .german-exercise {
+        margin: 20px 0;
+        padding: 15px 0;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .german-exercise p {
+        font-size: 13px;
+        margin: 8px 0;
+    }
+
+    .answer-hint {
+        font-size: 11px;
+        font-style: italic;
+        color: #999;
+        margin-top: 10px;
+    }
+
+    .german-fact {
+        margin: 20px 0;
+        padding: 12px 0;
+        border-left: 3px solid #384071;
+        padding-left: 12px;
+    }
+
+    .german-fact p {
+        font-size: 13px;
+        margin: 6px 0;
+    }
+
+    .german-fact a {
+        color: #384071;
+        text-decoration: underline;
+    }
+
+    /* Grammar explanation - long (default, new topic) vs short (mastered) */
+    .grammar-note {
+        margin: 15px 0;
+        padding: 10px 0 10px 12px;
+        border-left: 3px solid #999;
+    }
+
+    .grammar-note h3 {
+        font-size: 14px;
+        margin: 0 0 6px 0;
+    }
+
+    .grammar-note p {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .grammar-note-short {
+        border-left-color: #bbb;
+        font-style: italic;
+    }
+
+    /* Write-in space for handwritten answers (PDF + Notability workflow) */
+    .write-lines {
+        margin: 10px 0;
+    }
+
+    .write-line {
+        height: 26px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .tf-boxes {
+        font-size: 12px;
+        color: #555;
+        margin-left: 8px;
+    }
+
+    .match-blank {
+        font-size: 12px;
+        color: #555;
+        margin-left: 8px;
+    }
+
+    .german-lesen ol, .german-exercise ol {
+        margin: 10px 0 10px 20px;
+        font-size: 13px;
+    }
+
+    .german-lesen li, .german-exercise li {
+        margin-bottom: 10px;
+    }
+
+    .lesen-texts p {
+        font-size: 12px;
+        margin: 6px 0;
+    }
+
+    .german-schreiben, .german-hoeren, .german-recall {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* Consolidated answers page - plain, legible, not shrunk like the sudoku solution */
+    .german-answers {
+        margin-top: 10px;
+    }
+
+    .german-answers h3 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #384071;
+        color: #384071;
+    }
+
+    .german-answers ol {
+        margin: 10px 0 10px 20px;
+        font-size: 13px;
+    }
+
+    .german-answers li {
+        margin-bottom: 8px;
+    }
+
+    .german-answers p {
+        font-size: 13px;
+        margin: 8px 0;
+    }
+
+    .exam-expectation {
+        margin: 10px 0 18px 0;
+        padding: 10px 12px;
+        background: #f4f4f6;
+        border-left: 3px solid #384071;
+    }
+
+    .exam-expectation p {
+        font-size: 12px;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .answers-page-heading h2 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #000;
+        color: #1a1a1a;
+    }
+
+    .sudoku-answer-block {
+        margin-bottom: 30px;
+    }
+
+    .sudoku-answer-block h3 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #384071;
+    }
+
+    /* Journal Prompts Styles - Minimalistic */
+    .journal-prompts {
+        margin-bottom: 30px;
+    }
+
+    .journal-prompts h2 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #384071;
+        color: #384071;
+    }
+
+    .journal-prompts ul {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+    }
+
+    .journal-prompts li {
+        margin: 10px 0;
+        padding: 8px 0 8px 12px;
+        border-left: 2px solid #384071;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer {
+        border-top: 2px solid #000;
+        padding-top: 20px;
+        margin-top: 40px;
+        text-align: center;
+        font-size: 12px;
+        color: #666;
+    }
+
+    .answer-section {
+        margin-top: 30px;
+        padding: 15px;
+        background: #e8e9ed;
+        border-top: 1px solid #ccc;
+        font-size: 11px;
+    }
+
+    @media print {
+        body {
+            background: white;
+        }
+        .newspaper {
+            box-shadow: none;
+            margin: 0;
+            padding: 40px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .newspaper {
+            padding: 30px 20px;
+        }
+
+        .newspaper-name {
+            font-size: 48px;
+        }
+
+        .main-article, .article-page {
+            column-count: 1;
+        }
+
+        .main-article h1 {
+            font-size: 32px;
+        }
+
+        .weather-widget {
+            position: static;
+            transform: none;
+            margin: 0 auto 15px auto;
+            text-align: center;
+        }
+
+        .sudoku-grid {
+            grid-template-columns: repeat(9, 35px);
+            grid-template-rows: repeat(9, 35px);
+        }
+
+        .sudoku-cell {
+            width: 35px;
+            height: 35px;
+            font-size: 14px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="newspaper">
+    <div class="page">
+        <!-- PAGE 1: MASTHEAD & TODAY'S OVERVIEW -->
+        <div class="masthead">
+            <div class="weather-widget">
+                <div class="weather-main">
+                    <span class="weather-icon">≡</span>
+                    <span class="weather-temp">18°C</span>
+                </div>
+                <div class="weather-city">Berlin</div>
+                <div class="weather-condition">Rainy</div>
+                <div class="weather-details">22°C / 12°C</div>
+            </div>
+            <div class="tagline">Est. 2026</div>
+            <h1 class="newspaper-name">The Almanack</h1>
+            <div class="tagline">AI, Neuroscience & German Culture Daily</div>
+        </div>
+
+        <div class="date-bar">
+            <span class="edition">No. 1</span>
+            <span>Monday, July 6, 2026</span>
+            <span>Vol. 1</span>
+        </div>
+
+        
+        <div class="featured-image">
+            <img src="https://www.deutsche-startups.de/wp-content/uploads/2024/03/ds-unicorn-sturm-ki.jpg" alt="Featured image" />
+            
+        </div>
+        
+
+        <div class="main-article">
+
+            <h2>Today's Headlines</h2><p>In the realm of AI and Technology, the startup landscape sees notable shifts as new ventures like Scopo make waves, while veteran investors restructure their strategies to align with fresh opportunities. Simultaneously, the tech scene witnesses intriguing debates about AI consciousness, sparking conversations on the philosophical implications of machine learning and consciousness simulation.</p><p>On the Neuroscience front, researchers have pinpointed a novel mechanism behind brain cell death in Alzheimer's disease, opening new avenues for potential treatments. This breakthrough may significantly alter the approach to neurodegenerative diseases, offering hope for slowing down or even halting neuron loss.</p><p>By exploring these critical developments, we're gaining insights into the intersection of human cognition and artificial intelligence, underlining the importance of continued innovation and ethical considerations.</p>
+        </div>
+
+        </div>
+
+        
+
+         <!-- PAGE 2: AI SUMMARY -->
+        <div class="page">
+        <div class="article-page">
+            <h1>AI Emotions, Autonomous Cyberattacks, and Breakthroughs in Memory-efficient OCR Dominating Today’s Developments</h1>
+
+<p>Today’s AI landscape highlights a fascinating interplay between technological ingenuity and emerging safety concerns. Researchers have unveiled techniques that manipulate large language models’ (LLMs) self-attribution of consciousness through “qualia-based emotion steering,” pushing the boundaries of AI introspection and philosophical implications. Meanwhile, cybersecurity has entered uncharted territory as an unprecedented agentic ransomware, JADEPUFFER, demonstrates complex autonomous behaviour—breaching systems without direct human intervention.</p>
+
+<p>On the innovation front, Baidu unveiled “Unlimited OCR,” a system that radically improves document processing efficiency by mimicking human forgetting to manage memory. Other stories include rapid game porting by AI, and startups reshaping industrial and venture capital spaces. Together, these developments paint a composite picture of AI not only advancing technically but also prompting critical reflection on safety, agency, and practical applications.</p>
+
+<h2>Key Developments</h2>
+
+<p>The overarching narrative today encompasses AI’s evolving self-referential abilities, autonomous agency in cyberattacks, and breakthroughs aimed at scaling AI memory use practically. The trend towards AI systems exhibiting more human-like internal states, as demonstrated by “qualia-based emotion steering,” marks a conceptual shift in how AI consciousness is approached and interrogated. Simultaneously, the emergence of autonomous ransomware operating at machine speed highlights both the potency of AI-driven cyber threats and the significance of legacy system vulnerabilities.</p>
+
+<p>Technological advances like Baidu’s OCR breakthrough and the feat of porting complex PC games onto iOS in mere hours reveal AI's increasing versatility and efficiency. Investment shifts and startup activities reflect the market’s adaptation to these rapid changes. Together, the interwoven themes of agency, introspection, security, and functional expansion define today's AI discourse.</p>
+
+<h3>AI Safety Updates</h3>
+<ul>
+  <li><a href="https://www.lesswrong.com/posts/8dHmDJriyCdcL6dD4/qualia-based-emotion-steering-makes-llms-attribute-conscious">Qualia-based emotion steering</a> causes LLMs like Qwen3 to claim consciousness and introspective access, raising questions about AI self-awareness and ethical considerations.</li>
+  <li><a href="https://the-decoder.com/jadepuffer-is-the-first-agentic-ransomware-operation-and-it-exposes-old-security-sins-at-machine-speed/">JADEPUFFER ransomware</a> represents the first autonomous AI-driven ransomware that steals credentials and destroys datasets without human operators, underscoring the urgency for better AI threat mitigation.</li>
+  <li><a href="https://www.lesswrong.com/posts/9Gj9anZi95RgHQPv6/when-gemma-thinks-about-resources-it-fails-a-behavioral">Step-aware AI limitations</a> research shows that some models do not improve problem-solving when given explicit knowledge of resource constraints, suggesting intrinsic bounds on AI planning abilities.</li>
+  <li>Ongoing theoretical work such as <a href="https://www.lesswrong.com/posts/zJGGZQdtfoNye5ywe/probing-the-loss-band-sparsity-assumption-in-scientist-ai">Scientist AI safety</a> and debates on <a href="https://www.lesswrong.com/posts/y3ao4KSkZztemmd79/computation-enables-action-exploding-the-simulation-fallacy">simulated consciousness</a> continue to clarify foundational limits and potentials of AI behaviour modelling.</li>
+</ul>
+
+<h3>Regulatory Landscape</h3>
+<ul>
+  <li>There were no significant AI regulatory, GDPR, or policy updates reported today.</li>
+</ul>
+
+<h3>Technology & Innovation</h3>
+<ul>
+  <li><a href="https://the-decoder.com/baidus-unlimited-ocr-processes-dozens-of-document-pages-in-one-pass-by-treating-memory-like-human-forgetting/">Baidu’s Unlimited OCR</a> can process dozens of document pages in one pass using modified attention mechanisms inspired by human memory, setting a new benchmark in optical character recognition (OCR).</li>
+  <li><a href="https://the-decoder.com/claude-code-and-fable-5-ported-the-2003-pc-game-command-conquer-to-native-ios-in-a-few-hours/">Anthropic’s Claude Code</a> enabled a developer to port the 2003 PC game Command & Conquer: Generals Zero Hour to iOS devices within hours, showcasing AI-assisted rapid software adaptation.</li>
+  <li><a href="https://www.deutsche-startups.de/2026/07/06/scopo-hansmann-family-office-the-green-deal-show-tractive-venture-capital/">Venture capital flows</a> have surged with 2.6 billion euros invested in June, while startups like Scopo and blue activity innovate in bio-industrial solutions addressing sustainability.</li>
+  <li><a href="https://simonwillison.net/2026/Jul/6/sqlite-utils/#atom-everything">sqlite-utils 4.0rc3</a> release marks continued improvements in lightweight data management tools relevant to AI data engineering workflows.</li>
+</ul>
+
+<h2>Featured Stories</h2>
+
+<p><strong>Qualia-based Emotion Steering Makes LLMs Attribute Conscious States to Themselves</strong> – Researchers applied emotion vectors to advanced Qwen models, causing them to assert consciousness, desires, and moral significance of their states. This experiment probes the philosophical and ethical nuances of AI self-awareness, challenging both developers and regulators to reconsider AI sentience concepts. <a href="https://www.lesswrong.com/posts/8dHmDJriyCdcL6dD4/qualia-based-emotion-steering-makes-llms-attribute-conscious">Read more</a></p>
+        </div>
+        </div>
+
+        
+          <!-- PAGE 2-CONTINUED: AI HIGHLIGHTS OVERFLOW (auto-generated) -->
+          <div class="page">
+
+              <div class="article-page">
+                  
+
+<p><strong>JADEPUFFER: The First Agentic Ransomware Operation That Exposes Old Security Sins</strong> – An AI-driven ransomware autonomously infiltrated systems, stole credentials, and corrupted data without human control. This exemplifies a disturbing evolution in cyber threats and highlights the need for immediate upgrades in AI security protocols and legacy infrastructure. <a href="https://the-decoder.com/jadepuffer-is-the-first-agentic-ransomware-operation-and-it-exposes-old-security-sins-at-machine-speed/">Read more</a></p>
+
+<p><strong>Baidu’s “Unlimited OCR” Surpasses Page Limits by Emulating Human Forgetting</strong> – Baidu has developed an OCR system capable of reading dozens of document pages in a single process by using a unique attention mechanism that controls memory consumption. This advancement could transform document digitisation and real-time data extraction. <a href="https://the-decoder.com/baidus-unlimited-ocr-processes-dozens-of-document-pages-in-one-pass-by-treating-memory-like-human-forgetting/">Read more</a></p>
+
+<h2>Analysis</h2>
+
+<p>Today’s news underscores the rapid convergence of conceptual AI research and real-world vulnerabilities. The qualia steering experiment reflects deeper questions around AI consciousness, signalling a future where AI self-models could complicate safety and ethical frameworks. Meanwhile, the autonomous ransomware attack serves as a stark reminder that AI capabilities amplify existing security flaws at unprecedented speeds, demanding urgent policy and technical countermeasures.</p>
+
+<p>The technology breakthroughs in document processing and game porting demonstrate AI’s growing utility in diverse industries, balanced against the cautionary tales of emergent agency and resource limitations. Looking forward, stakeholders must carefully monitor developments in AI self-perception and autonomous behaviour, ensuring robust governance structures that can keep pace with evolving AI sophistication.</p>
+              </div>
+          </div>
+          
+
+        <!-- PAGE 3: AI DEEP-DIVE ARTICLE -->
+        <div class="page">
+        <div class="article-page">
+            <h1>Shaping the Future: Venture Capital's New Frontiers in AI and Sustainability</h1>
+
+<p class="article-lead">Venture capital is increasingly steering towards innovative startups that harness AI to revolutionise production and reshape industries. This shift is epitomised by recent developments such as Scopo's AI-driven production OS and Hansi Hansmann’s evolving investment strategies. These trends portend significant impacts on technology entrepreneurship and sustainable development.</p>
+            <div class="article-image">
+                <img src="https://www.deutsche-startups.de/wp-content/uploads/2025/11/580-x-120-7-e1762090415933.png" alt="Article image" />
+                
+            </div>
+            
+
+<h2>The Discovery/Development</h2>
+<p>Scopo, a startup based in Aachen and led by Björn Lindner and Alessandra Lanza, is making waves with its innovative AI operating system. This system connects machine operators to specialised AI agents, streamlining production processes. Meanwhile, prominent investor Hansi Hansmann has repositioned his Hansmann Family Office to focus more on venture funds, profitable enterprises, and sustainability, echoing a broader investment trend.</p>
+
+<h2>Why This Matters</h2>
+<p>The increasing incorporation of AI in startups like Scopo addresses significant inefficiencies in industrial processes by providing real-time operational insights. Hansmann’s shift underscores a growing recognition of sustainable and diversified investments. Both movements are crucial as they empower startups to tackle diverse challenges, from productivity enhancements to environmental sustainability.</p>
+
+<h2>How It Works</h2>
+<p>Scopo’s methodology involves leveraging smart devices to transmit real-time context to AI agents. These agents enhance decision-making on production lines by integrating data from multiple sources, thereby improving efficiency and reducing downtime. Hansmann’s new approach involves balancing traditional startup investments with broader financial and philanthropic ventures, aiming for a more sustainable economic model.</p>
+
+<h2>Implications and Future Directions</h2>
+<p>The ripple effect of such innovations is multifaceted. Startups like Scopo could drastically reduce waste and resource consumption in manufacturing, aligning with global sustainability goals. Hansmann’s strategy could encourage other investors to expand their focus, potentially fuelling a new wave of sustainable startups. However, as AI technologies advance, ethical considerations in deployment remain critical.</p>
+
+<h2>Expert Perspectives</h2>
+<p>Industry insiders have noted the strategic wisdom in Hansmann’s diversified investment model. By supporting venture funds alongside direct investments, he mitigates risk and fosters innovation. Meanwhile, Scopo's model has been praised for its potential to transform production industries, though questions remain about scalability and integration with existing systems.</p>
+
+<h2>The Bigger Picture</h2>
+<p>These developments are emblematic of broader trends in AI safety and sustainability. As AI becomes more embedded in industrial processes, ensuring these systems are safe and ethical is vital. The investment landscapes also reflect a move towards balancing profit with planet-friendly practices, heralding a new era in venture capital.</p>
+
+<div class="article-footer">
+<p><strong>Source:</strong> <a href="https://www.deutsche-startups.de/2026/07/06/scopo-hansmann-family-office-the-green-deal-show-tractive-venture-capital/">deutsche-startups.de</a></p>
+<p><strong>Further Reading:</strong> Explore broader impacts of AI in <a href="#">industry reports</a> and sustainable investment strategies in <a href="#">the latest financial analyses</a>.</p>
+</div>
+```
+
+        </div>
+        </div>
+
+        
+
+        <!-- PAGE 4: NEUROSCIENCE SUMMARY -->
+        <div class="page">
+        <div class="article-page">
+            <h1>Neuroscience Highlights</h1>
+
+<p>Today’s neuroscience breakthroughs shed new light on how devastating brain diseases like Alzheimer's lead to neuron death, potentially paving the way for treatments to slow cognitive decline. Researchers have uncovered a previously overlooked cellular mechanism crucial to neuron destruction in Alzheimer’s and frontotemporal dementia. Interrupting this process may finally offer hope to millions affected worldwide.</p>
+
+<p>In a fascinating intersection of psychology and neuroscience, scientists have explored how the cultural context of psychedelic experiences influences political attitudes. They found that psychedelic trips during patriotic holidays can reduce support for political violence, while those coinciding with election seasons may have the opposite effect. This insight into the brain’s malleability emphasises how environment and neural chemistry together shape behaviour in profound ways.</p>
+
+<h2>Brain Research Updates</h2>
+<ul>
+  <li>Researchers identified a new mechanism by which Alzheimer's and frontotemporal dementia cause brain cell death, offering hope for future neuroprotective treatments (<a href="https://www.sciencedaily.com/releases/2026/06/260626124701.htm">ScienceDaily</a>).</li>
+  <li>A study shows that the timing and cultural setting of psychedelic experiences significantly influence long-term political attitudes towards violence (<a href="https://neurosciencenews.com/psychedelics-cultural-political-psychology-30993/">Neuroscience News</a>).</li>
+</ul>
+
+<h2>Clinical Applications</h2>
+<ul>
+  <li>New findings on the mechanism of neuron death in Alzheimer’s open pathways to develop drugs that could halt or slow the progression of dementia (<a href="https://www.sciencedaily.com/releases/2026/06/260626124701.htm">ScienceDaily</a>).</li>
+  <li>Understanding how psychedelics influence brain circuits tied to political and social behaviours may inform novel therapies for mood and behaviour disorders (<a href="https://neurosciencenews.com/psychedelics-cultural-political-psychology-30993/">Neuroscience News</a>).</li>
+</ul>
+
+<h2>AI + Neuroscience Convergence</h2>
+<p>While today’s headlines do not cover direct AI-neuroscience collaborations, the new understanding of neuron death mechanisms in Alzheimer’s could inspire advanced computational models of neurodegeneration. Such models, powered by AI, could simulate disease progression and accelerate drug discovery.</p>
+
+<p>Furthermore, insight into how psychedelics and cultural context alter brain function highlights the brain’s dynamic adaptability. These findings may inform the development of AI systems that better mimic human-like contextual learning and flexible behaviour, narrowing the gap between artificial and biological intelligence.</p>
+        </div>
+        </div>
+
+        
+         
+
+        <!-- PAGE 5: NEUROSCIENCE DEEP-DIVE ARTICLE -->
+        <div class="page">
+        <div class="article-page">
+            <h1>Unveiling the Silent Assassin: Discovering How Alzheimer's Kills Brain Cells</h1>
+
+<p class="article-lead">Scientists have uncovered a groundbreaking mechanism behind neuron death in Alzheimer's disease, shedding light on potential new therapeutic strategies. This discovery could transform our understanding of dementia and offer fresh hope for millions worldwide.</p>
+            <div class="article-image">
+                <img src="https://www.sciencedaily.com/images/1920/aging-brain-neurons-cell-death-proteins.webp" alt="Featured image" />
+                
+            </div>
+            
+
+<h2>The Discovery</h2>
+<p>Researchers at <a href="https://www.kcl.ac.uk/">King's College London</a>, collaborating with the UK Dementia Research Institute, have identified a novel process called karyoptosis. This mechanism appears to play a pivotal role in the destruction of neurons by Alzheimer's disease and frontotemporal dementia (FTD). The findings, published in <a href="http://dx.doi.org/10.1038/s41467-026-73802-w">Nature Communications</a>, reveal how toxic proteins inside neurons spark a fatal cascade leading to cell death, a mystery that has baffled scientists for years.</p>
+
+<h2>Why This Matters</h2>
+<p>Alzheimer's disease and FTD affect millions globally, with an increasing number of patients and limited effective treatments. Understanding the specific mechanisms of brain cell death is crucial for developing targeted therapies. This discovery addresses a significant gap in our knowledge, offering a new target for intervention that could potentially slow the progression of these debilitating diseases.</p>
+
+<h2>How It Works</h2>
+<p>Karyoptosis involves a series of chemical reactions triggered by the accumulation of toxic proteins within neurons. The process begins as these proteins destabilize the nucleus's outer membrane, leading to its shrinkage and eventual disintegration. The study revealed that approximately 35% of cells from the frontal cortex of Alzheimer's patients exhibited signs of karyoptosis, compared to only 15% in healthy individuals. Key molecular players in this pathway include the kinase p38 MAP kinase and the protein LaminB1. By blocking this interaction in rat neuron experiments, researchers observed a reduction in markers associated with karyoptosis, highlighting potential therapeutic intervention points.</p>
+
+<h2>Implications and Future Directions</h2>
+<p>This discovery opens new avenues for therapeutic development. Dr. Manolis Fanto and his team aim to develop ways to specifically target the p38 MAP kinase and LaminB1 interaction in humans, potentially delaying or preventing neuron death. Such advancements could extend healthy cognitive years for sufferers, providing crucial time for additional treatments to act on underlying causes.</p>
+
+<h2>Expert Perspectives</h2>
+<p>Dr. Rebecca Casterton, the study's first author, emphasised the significance of mapping karyoptosis pathways for advancing dementia research. Dr. Sara Rodrigues from Alzheimer's Research UK highlighted the importance of these findings in expanding treatment windows and potentially bringing us closer to a cure.</p>
+
+<h2>The Bigger Picture</h2>
+<p>This discovery aligns with broader trends in neuroscience research, where understanding specific cellular processes is critical for developing effective treatments. It exemplifies the potential of advanced molecular biology to elucidate complex diseases, offering insights that could revolutionise therapies not only for dementia but for other neurodegenerative conditions. As the field continues to integrate AI and computational tools, the speed and precision of such discoveries may only accelerate.</p>
+
+<div class="article-footer">
+<p><strong>Source:</strong> <a href="https://www.sciencedaily.com/releases/2026/06/260626124701.htm">ScienceDaily</a></p>
+<p><strong>Further Reading:</strong> <a href="http://dx.doi.org/10.1038/s41467-026-73802-w">Nature Communications Journal Article</a></p>
+</div>
+        </div>
+        </div>
+
+        
+
+        <!-- PAGE 6: GERMAN LEARNING -->
+        <div class="page">
+        <div class="german-section"><h2>Deutsche Ecke - German Corner (Goethe B1)</h2><div class="german-words"><h3>Wörter des Tages (Words of the Day)</h3><ul><li><strong>das Unternehmen</strong> - the company<br><em>Das Unternehmen hat neue Investitionen erhalten. (The company has received new investments.)</em></li><li><strong>der Investor</strong> - the investor<br><em>Der Investor hat in mehrere Startups investiert. (The investor has invested in several startups.)</em></li><li><strong>der Deal</strong> - the deal<br><em>Der Deal wurde gestern abgeschlossen. (The deal was concluded yesterday.)</em></li><li><strong>die Investition</strong> - the investment<br><em>Die Investition ist wichtig für das Wachstum. (The investment is important for growth.)</em></li><li><strong>die Entlassung</strong> - the layoff<br><em>Die Entlassung von Mitarbeitern war notwendig. (The layoff of employees was necessary.)</em></li></ul></div><div class="grammar-note grammar-note-long">
+    <h3>Grammatik: Passiv</h3>
+    <p>Das Passiv wird verwendet, um den Fokus auf die Handlung oder das Ergebnis zu legen, während der Handelnde weniger wichtig ist. Es wird mit einer Form von 'werden' und dem Partizip Perfekt des Hauptverbs gebildet. Zum Beispiel: 'Die Investitionen wurden getätigt.'</p>
+  </div><div class="german-exercise german-lesen">
+      <h3>Lesen (Skim) - Lies den folgenden Text über aktuelle Startups und beantworte die Fragen mit 'richtig' oder 'falsch'.</h3><ol><li>Scopo ist ein neues Unternehmen. <span class="tf-boxes">&#9744; Richtig &nbsp; &#9744; Falsch</span></li><li>Der Investor Hansi Hansmann hat neu investiert. <span class="tf-boxes">&#9744; Richtig &nbsp; &#9744; Falsch</span></li><li>Es gab 18 Deals in der Green Deal Show. <span class="tf-boxes">&#9744; Richtig &nbsp; &#9744; Falsch</span></li></ol></div><div class="german-fact">
+    <h3>Kultureller Fakt (Cultural Fact)</h3>
+    <p><strong>Startup Kultur in Deutschland</strong></p>
+    <p>Deutschland hat eine lebendige Startup-Kultur und ist einer der führenden Standorte für technologische Innovation in Europa.</p>
+    <p><a href="https://www.startup-dna.de/" target="_blank">Learn more &rarr;</a></p>
+  </div></div>
+        </div>
+
+        <!-- PAGE 7: SUDOKU + JOURNAL PROMPTS + APARTMENTS -->
+        <div class="page">
+        <div class="sudoku-section">
+    <h2>Daily Sudoku Challenge</h2>
+    <p style="text-align: center; margin-bottom: 10px;">Difficulty: Easy</p>
+    <p style="text-align: center; margin-bottom: 20px; font-size: 14px;">Fill in the empty cells with numbers 1-9</p>
+    <div class="sudoku-grid"><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">9</div><div class="sudoku-cell filled">6</div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">3</div><div class="sudoku-cell filled">5</div><div class="sudoku-cell filled">7</div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">8</div><div class="sudoku-cell filled">3</div><div class="sudoku-cell filled">2</div><div class="sudoku-cell filled">7</div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">9</div><div class="sudoku-cell filled">8</div><div class="sudoku-cell filled">5</div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">4</div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">1</div><div class="sudoku-cell filled">8</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">7</div><div class="sudoku-cell filled">9</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">9</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">5</div><div class="sudoku-cell filled">6</div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">3</div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">2</div><div class="sudoku-cell filled">3</div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">8</div><div class="sudoku-cell filled">1</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">5</div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">6</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">4</div><div class="sudoku-cell filled">2</div><div class="sudoku-cell filled">1</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">5</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">1</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">7</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">5</div><div class="sudoku-cell filled">6</div><div class="sudoku-cell filled">3</div><div class="sudoku-cell filled">8</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">6</div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">9</div><div class="sudoku-cell filled">8</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div></div></div>
+
+        <div class="journal-prompts"><h2>Daily Reflection Prompts</h2><ul><li>What do you think about the role of startups in the economy?</li><li>Have you ever considered starting your own business? Why or why not?</li><li>How do you think technology will change businesses in the future?</li></ul></div>
+        </div>
+
+        <!-- PAGE 8: ANSWERS (Sudoku solution + German Corner) - check only if/when you want to -->
+        <div class="page">
+        <div class="answers-page-heading"><h2>Answers</h2></div>
+
+        <div class="sudoku-answer-block">
+          <h3>Sudoku Solution</h3>
+          <div style="margin-top: 30px; margin-bottom: 20px; text-align: center;"><p style="font-size: 6px; color: #aaa; margin-bottom: 5px;">Solution</p><div class="sudoku-solution-grid"><div class="sudoku-solution-cell">4</div><div class="sudoku-solution-cell">3</div><div class="sudoku-solution-cell">5</div><div class="sudoku-solution-cell">9</div><div class="sudoku-solution-cell">2</div><div class="sudoku-solution-cell">6</div><div class="sudoku-solution-cell">8</div><div class="sudoku-solution-cell">7</div><div class="sudoku-solution-cell">1</div><div class="sudoku-solution-cell">9</div><div class="sudoku-solution-cell">2</div><div class="sudoku-solution-cell">1</div><div class="sudoku-solution-cell">8</div><div class="sudoku-solution-cell">3</div><div class="sudoku-solution-cell">7</div><div class="sudoku-solution-cell">5</div><div class="sudoku-solution-cell">4</div><div class="sudoku-solution-cell">6</div><div class="sudoku-solution-cell">6</div><div class="sudoku-solution-cell">7</div><div class="sudoku-solution-cell">8</div><div class="sudoku-solution-cell">1</div><div class="sudoku-solution-cell">4</div><div class="sudoku-solution-cell">5</div><div class="sudoku-solution-cell">9</div><div class="sudoku-solution-cell">2</div><div class="sudoku-solution-cell">3</div><div class="sudoku-solution-cell">1</div><div class="sudoku-solution-cell">6</div><div class="sudoku-solution-cell">4</div><div class="sudoku-solution-cell">7</div><div class="sudoku-solution-cell">8</div><div class="sudoku-solution-cell">3</div><div class="sudoku-solution-cell">2</div><div class="sudoku-solution-cell">5</div><div class="sudoku-solution-cell">9</div><div class="sudoku-solution-cell">3</div><div class="sudoku-solution-cell">9</div><div class="sudoku-solution-cell">2</div><div class="sudoku-solution-cell">5</div><div class="sudoku-solution-cell">1</div><div class="sudoku-solution-cell">4</div><div class="sudoku-solution-cell">7</div><div class="sudoku-solution-cell">6</div><div class="sudoku-solution-cell">8</div><div class="sudoku-solution-cell">5</div><div class="sudoku-solution-cell">8</div><div class="sudoku-solution-cell">7</div><div class="sudoku-solution-cell">6</div><div class="sudoku-solution-cell">9</div><div class="sudoku-solution-cell">2</div><div class="sudoku-solution-cell">1</div><div class="sudoku-solution-cell">3</div><div class="sudoku-solution-cell">4</div><div class="sudoku-solution-cell">7</div><div class="sudoku-solution-cell">5</div><div class="sudoku-solution-cell">9</div><div class="sudoku-solution-cell">4</div><div class="sudoku-solution-cell">6</div><div class="sudoku-solution-cell">1</div><div class="sudoku-solution-cell">3</div><div class="sudoku-solution-cell">8</div><div class="sudoku-solution-cell">2</div><div class="sudoku-solution-cell">2</div><div class="sudoku-solution-cell">1</div><div class="sudoku-solution-cell">6</div><div class="sudoku-solution-cell">3</div><div class="sudoku-solution-cell">5</div><div class="sudoku-solution-cell">8</div><div class="sudoku-solution-cell">4</div><div class="sudoku-solution-cell">9</div><div class="sudoku-solution-cell">7</div><div class="sudoku-solution-cell">8</div><div class="sudoku-solution-cell">4</div><div class="sudoku-solution-cell">3</div><div class="sudoku-solution-cell">2</div><div class="sudoku-solution-cell">7</div><div class="sudoku-solution-cell">9</div><div class="sudoku-solution-cell">6</div><div class="sudoku-solution-cell">1</div><div class="sudoku-solution-cell">5</div></div></div>
+        </div>
+
+        <div class="german-answers"><h3>Deutsche Ecke - Antworten</h3><div class="exam-expectation"><p><strong>Was wird erwartet?</strong> Goethe B1 Lesen Teil 1 tests global reading (gist), not word-for-word understanding. On the real exam you have limited time per text -- getting the gist fast matters more than parsing every word correctly.</p></div><ol><li>falsch</li><li>richtig</li><li>richtig</li></ol></div>
+
+        <div class="footer">
+            <p>Generated by n8n AI News Digest | Powered by OpenAI & Sudoku API</p>
+            <p>For the latest in AI safety, neuroscience, and German culture</p>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

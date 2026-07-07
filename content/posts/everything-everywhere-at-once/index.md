@@ -2,7 +2,7 @@
 title: "Everything Everywhere at Once"
 date: 2026-05-31T20:02:00+02:00
 draft: false
-weight: 1
+weight: 4
 tags: ["commonplace", "notes", "stationery", "adhd"]
 languages: ["russian"]
 description: "О записных книжках, которые я ношу везде, commonplace books, Zettelkasten и о том, почему мне нужна была страничка без единой темы."

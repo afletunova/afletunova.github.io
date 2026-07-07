@@ -2,6 +2,7 @@
 title: "The Almanack"
 date: 2026-07-06T13:47:00+02:00
 draft: false
+weight: 1
 tags: ["n8n", "automation", "no-code", "newsletter"]
 languages: ["english"]
 description: "How building a daily news scraper in n8n turned into my own personal newspaper."

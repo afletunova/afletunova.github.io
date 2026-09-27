@@ -1,1 +1,1008 @@
-<!-- placeholder: The Almanack BETA, first real issue not yet published -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Almanack | September 27, 2026</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Times New Roman', Times, serif;
+        background: #e8e9ed;
+        color: #1a1a1a;
+        line-height: 1.6;
+        padding: 20px;
+    }
+
+    .newspaper {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: transparent;
+        padding: 0;
+    }
+
+    .masthead {
+        text-align: center;
+        border-bottom: 3px double #000;
+        border-top: 1px solid #000;
+        padding: 15px 0;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .newspaper-name {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 48px;
+        font-weight: 900;
+        letter-spacing: 2px;
+        margin: 12px 0;
+        text-transform: uppercase;
+    }
+
+    .tagline {
+        font-size: 11px;
+        font-style: italic;
+        color: #666;
+        letter-spacing: 1px;
+    }
+
+    .date-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11px;
+        padding: 8px 0;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 18px;
+    }
+
+    .edition {
+        font-weight: bold;
+    }
+
+    .weather-widget {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: transparent;
+        border: 2px solid #384071;
+        padding: 6px 10px;
+        color: #384071;
+        font-size: 9px;
+        line-height: 1.3;
+        min-width: 90px;
+    }
+
+    .weather-main {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 3px;
+    }
+
+    .weather-icon {
+        font-size: 16px;
+    }
+
+    .weather-temp {
+        font-size: 14px;
+        font-weight: 700;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .weather-city {
+        font-size: 8px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .weather-condition {
+        font-size: 9px;
+    }
+
+    .weather-details {
+        font-size: 8px;
+        margin-top: 3px;
+        border-top: 1px solid #384071;
+        padding-top: 3px;
+    }
+
+    @page {
+      size: A4;
+      margin: 15mm;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 15mm;
+      background: white;
+      page-break-after: always;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    /* For screen preview */
+    @media screen {
+      body {
+        background: #e8e9ed;
+        padding: 20px;
+      }
+
+      .page {
+        margin: 0 auto 20px auto;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+    }
+
+    /* For printing */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+      }
+    }
+
+    /* Main Article Styles */
+    .main-article {
+        column-count: 2;
+        column-gap: 30px;
+        text-align: justify;
+        margin-bottom: 30px;
+        column-fill: balance;
+    }
+
+    .main-article h1 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 12px;
+        column-span: all;
+        color: #384071;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .main-article h2 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 18px;
+        font-weight: 700;
+        margin: 16px 0 10px 0;
+        color: #384071;
+    }
+
+    .main-article h3 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 14px;
+        font-weight: 700;
+        margin: 12px 0 6px 0;
+        break-after: avoid;
+        color: #384071;
+    }
+
+    .main-article p {
+        margin-bottom: 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        orphans: 3;
+        widows: 3;
+    }
+
+    .main-article ul {
+        margin: 12px 0 12px 20px;
+        font-size: 12px;
+    }
+
+    .main-article li {
+        margin-bottom: 8px;
+    }
+
+    .main-article a {
+        color: #384071;
+        text-decoration: none;
+        border-bottom: 1px solid #5a6b94;
+    }
+
+    .main-article a:hover {
+        background-color: #d5d7e0;
+    }
+
+    .featured-image {
+        column-span: all;
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .featured-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .featured-image .caption {
+        font-size: 10px;
+        font-style: italic;
+        color: #666;
+        margin-top: 5px;
+    }
+
+    /* Deep-Dive Article Images - inline with column content */
+    .article-image {
+        margin: 10px 0;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .article-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .article-image .caption {
+        font-size: 9px;
+        font-style: italic;
+        color: #666;
+        margin-top: 5px;
+        text-align: center;
+    }
+
+    /* Deep-Dive Article Styles */
+    .article-page {
+        column-count: 2;
+        column-gap: 30px;
+        text-align: justify;
+        margin-bottom: 30px;
+        column-fill: balance;
+    }
+
+    .article-page h1 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 12px;
+        column-span: all;
+        color: #384071;
+    }
+
+    .article-page .article-lead {
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-bottom: 16px;
+        column-span: all;
+        color: #333;
+    }
+
+    .article-page h2 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 16px 0 10px 0;
+        break-after: avoid;
+        page-break-after: avoid;
+        color: #384071;
+    }
+
+    .article-page h3 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 13px;
+        font-weight: 700;
+        margin: 12px 0 6px 0;
+        break-after: avoid;
+        color: #384071;
+    }
+
+    .article-page p {
+        margin-bottom: 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        orphans: 3;
+        widows: 3;
+    }
+
+    .article-page ul {
+        margin: 12px 0 12px 20px;
+        font-size: 12px;
+    }
+
+    .article-page li {
+        margin-bottom: 8px;
+    }
+
+    .article-page a {
+        color: #384071;
+        text-decoration: none;
+        border-bottom: 1px solid #5a6b94;
+    }
+
+    .article-page a:hover {
+        background-color: #d5d7e0;
+    }
+
+    .article-page .article-footer {
+        column-span: all;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 2px solid #384071;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .article-page .article-footer p {
+        margin-bottom: 8px;
+    }
+
+
+    /* Sudoku Styles - Minimalistic */
+    .sudoku-section {
+        margin-bottom: 30px;
+    }
+
+    .sudoku-section h2 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #384071;
+        color: #384071;
+    }
+
+    .sudoku-grid {
+        display: grid;
+        grid-template-columns: repeat(9, 32px);
+        grid-template-rows: repeat(9, 32px);
+        gap: 0;
+        margin: 15px 0;
+        width: fit-content;
+        border: 2px solid #000;
+    }
+
+    .sudoku-cell {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: 'Times New Roman', Times, serif;
+        border: 1px solid #ddd;
+        background: white;
+    }
+
+    .sudoku-cell.filled {
+        color: #000;
+    }
+
+    .sudoku-cell:nth-child(3n) {
+        border-right: 2px solid #000;
+    }
+
+    .sudoku-cell:nth-child(n+19):nth-child(-n+27),
+    .sudoku-cell:nth-child(n+46):nth-child(-n+54) {
+        border-bottom: 2px solid #000;
+    }
+
+    /* Sudoku Solution Grid - Small and Gray */
+    .sudoku-solution-grid {
+        display: grid;
+        grid-template-columns: repeat(9, 7px);
+        grid-template-rows: repeat(9, 7px);
+        gap: 0;
+        margin: 0 auto;
+        width: fit-content;
+        border: 0.5px solid #ddd;
+    }
+
+    .sudoku-solution-cell {
+        width: 7px;
+        height: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4px;
+        font-weight: 400;
+        font-family: 'Times New Roman', Times, serif;
+        border: 0.25px solid #eee;
+        background: #fafafa;
+        color: #bbb;
+    }
+
+    .sudoku-solution-cell:nth-child(3n) {
+        border-right: 0.5px solid #ddd;
+    }
+
+    .sudoku-solution-cell:nth-child(n+19):nth-child(-n+27),
+    .sudoku-solution-cell:nth-child(n+46):nth-child(-n+54) {
+        border-bottom: 0.5px solid #ddd;
+    }
+
+    /* German Section Styles - Minimalistic */
+    .german-section {
+        margin-bottom: 30px;
+    }
+
+    .german-section h2 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #384071;
+        color: #384071;
+    }
+
+    .german-section h3 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 20px 0 10px 0;
+        color: #384071;
+    }
+
+    .german-words ul {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+    }
+
+    .german-words li {
+        margin: 10px 0;
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .german-words li:last-child {
+        border-bottom: none;
+    }
+
+    .german-exercise {
+        margin: 20px 0;
+        padding: 15px 0;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .german-exercise p {
+        font-size: 13px;
+        margin: 8px 0;
+    }
+
+    .answer-hint {
+        font-size: 11px;
+        font-style: italic;
+        color: #999;
+        margin-top: 10px;
+    }
+
+    .german-fact {
+        margin: 20px 0;
+        padding: 12px 0;
+        border-left: 3px solid #384071;
+        padding-left: 12px;
+    }
+
+    .german-fact p {
+        font-size: 13px;
+        margin: 6px 0;
+    }
+
+    .german-fact a {
+        color: #384071;
+        text-decoration: underline;
+    }
+
+    /* Grammar explanation - long (default, new topic) vs short (mastered) */
+    .grammar-note {
+        margin: 15px 0;
+        padding: 10px 0 10px 12px;
+        border-left: 3px solid #999;
+    }
+
+    .grammar-note h3 {
+        font-size: 14px;
+        margin: 0 0 6px 0;
+    }
+
+    .grammar-note p {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .grammar-note-short {
+        border-left-color: #bbb;
+        font-style: italic;
+    }
+
+    /* Write-in space for handwritten answers (PDF + Notability workflow) */
+    .write-lines {
+        margin: 10px 0;
+    }
+
+    .write-line {
+        height: 26px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .tf-boxes {
+        font-size: 12px;
+        color: #555;
+        margin-left: 8px;
+    }
+
+    .match-blank {
+        font-size: 12px;
+        color: #555;
+        margin-left: 8px;
+    }
+
+    .german-lesen ol, .german-exercise ol {
+        margin: 10px 0 10px 20px;
+        font-size: 13px;
+    }
+
+    .german-lesen li, .german-exercise li {
+        margin-bottom: 10px;
+    }
+
+    .lesen-texts p {
+        font-size: 12px;
+        margin: 6px 0;
+    }
+
+    .german-schreiben, .german-hoeren, .german-recall {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* Consolidated answers page - plain, legible, not shrunk like the sudoku solution */
+    .german-answers {
+        margin-top: 10px;
+    }
+
+    .german-answers h3 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #384071;
+        color: #384071;
+    }
+
+    .german-answers ol {
+        margin: 10px 0 10px 20px;
+        font-size: 13px;
+    }
+
+    .german-answers li {
+        margin-bottom: 8px;
+    }
+
+    .german-answers p {
+        font-size: 13px;
+        margin: 8px 0;
+    }
+
+    .exam-expectation {
+        margin: 10px 0 18px 0;
+        padding: 10px 12px;
+        background: #f4f4f6;
+        border-left: 3px solid #384071;
+    }
+
+    .exam-expectation p {
+        font-size: 12px;
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    .answers-page-heading h2 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #000;
+        color: #1a1a1a;
+    }
+
+    .sudoku-answer-block {
+        margin-bottom: 30px;
+    }
+
+    .sudoku-answer-block h3 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #384071;
+    }
+
+    /* Journal Prompts Styles - Minimalistic */
+    .journal-prompts {
+        margin-bottom: 30px;
+    }
+
+    .journal-prompts h2 {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #384071;
+        color: #384071;
+    }
+
+    .journal-prompts ul {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+    }
+
+    .journal-prompts li {
+        margin: 10px 0;
+        padding: 8px 0 8px 12px;
+        border-left: 2px solid #384071;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    /* Footer */
+    .footer {
+        border-top: 2px solid #000;
+        padding-top: 20px;
+        margin-top: 40px;
+        text-align: center;
+        font-size: 12px;
+        color: #666;
+    }
+
+    .answer-section {
+        margin-top: 30px;
+        padding: 15px;
+        background: #e8e9ed;
+        border-top: 1px solid #ccc;
+        font-size: 11px;
+    }
+
+    @media print {
+        body {
+            background: white;
+        }
+        .newspaper {
+            box-shadow: none;
+            margin: 0;
+            padding: 40px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .newspaper {
+            padding: 30px 20px;
+        }
+
+        .newspaper-name {
+            font-size: 48px;
+        }
+
+        .main-article, .article-page {
+            column-count: 1;
+        }
+
+        .main-article h1 {
+            font-size: 32px;
+        }
+
+        .weather-widget {
+            position: static;
+            transform: none;
+            margin: 0 auto 15px auto;
+            text-align: center;
+        }
+
+        .sudoku-grid {
+            grid-template-columns: repeat(9, 35px);
+            grid-template-rows: repeat(9, 35px);
+        }
+
+        .sudoku-cell {
+            width: 35px;
+            height: 35px;
+            font-size: 14px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="newspaper">
+    <div class="page">
+        <!-- PAGE 1: MASTHEAD & TODAY'S OVERVIEW -->
+        <div class="masthead">
+            <div class="weather-widget">
+                <div class="weather-main">
+                    <span class="weather-icon">☼</span>
+                    <span class="weather-temp">24°C</span>
+                </div>
+                <div class="weather-city">Berlin</div>
+                <div class="weather-condition">Clear</div>
+                <div class="weather-details">28°C / 18°C</div>
+            </div>
+            <div class="tagline">Est. 2026</div>
+            <h1 class="newspaper-name">The Almanack</h1>
+            <div class="tagline">AI, Neuroscience & German Culture Daily</div>
+        </div>
+
+        <div class="date-bar">
+            <span class="edition">Daily Edition</span>
+            <span>Sunday, September 27, 2026</span>
+            <span>No. 1</span>
+        </div>
+
+        
+        <div class="featured-image">
+            <img src="https://the-decoder.com/wp-content/uploads/2026/09/huma_talking_ai.png" alt="Featured image" />
+            
+        </div>
+        
+
+        <div class="main-article">
+
+            <h2>Today's Headlines</h2><p>In the realm of neuroscience, intriguing discoveries shed light on persistent pain in rheumatoid arthritis, even when inflammation is controlled. The study highlights hidden factors like depression and poor sleep, urging for more personalised treatments. Meanwhile, scientists have uncovered a paradox during REM sleep where neurons consume energy faster than it can be replenished, suggesting intense internal processing during dreaming.</p><p>Elsewhere, research into nicotine addiction points to mitochondria in the brain's reward hub as significant drivers, paving the way for potentially effective therapies. Additionally, a significant health concern is raised as glucosamine, a popular joint supplement, is linked to faster progression of Alzheimer’s, though further trials are advised.</p><p>Together, these findings not only open new avenues for advanced treatments but also call for more caution in commonly accepted health practices, illustrating the intricate balance between neuroscience research and its practical implications.</p>
+        </div>
+
+        </div>
+
+        
+
+         <!-- PAGE 2: AI SUMMARY -->
+        <div class="page">
+        <div class="article-page">
+            <h1>Skeuomorphic Safety and Surging AI Ambition Redraw the Governance Frontier</h1>
+
+<pToday's AI coverage unfolds around a provocative safety philosophy that rethinks how we govern advanced systems by anchoring safety in the underlying technology stack itself. The idea of skeuomorphic AI safety argues for altering the hardware and software substrate so familiar human institutions can continue to function, rather than abruptly remodelling governance to chase elusive properties of general-purpose agents. This provocative lens sits alongside demonstrations of accelerated capability—from Claude Opus 5.5’s performance and cost efficiency to robot demonstrations where GPT-6 Astra interacts directly with modular skills—highlighting both potential and risk in the near term.</p>
+
+<pA second thread examines how access to AI shifts our epistemic practices: a new study finds that merely having AI answers at hand makes people far less willing to admit uncertainty, even when the AI is frequently wrong. At the same time, industry momentum continues to push scale and deployment, with auctions of trillions in infrastructure and a wave of security probes that suggest a broader, ongoing risk landscape. Taken together, today’s news underscores a field hurtling toward greater practical power while confronting safety, security and governance questions that will require careful attention.</p>
+
+<pA final strand traces the convergence of capability, embodiment and economy: the fast-moving hardware-software cycle, embodied AI in everyday tasks, and major investment in AI infrastructure threaten to outpace policy and oversight unless new guardrails keep pace. Readers should watch how these developments shape what we value in safe, controllable AI as models become more capable and more deeply embedded in society.</p>
+
+<h2>Key Developments</h2>
+
+<p>The common thread across today’s stories is a rapid escalation in capability paired with urgent questions about safety, accountability and governance. Hardware-enabled safety concepts sit alongside demonstrations of embodied AI, while research trajectories emphasise next-generation models and broad deployment—raising questions about how, where and under what safeguards these systems should operate.</p>
+
+<h3>AI Safety Updates</h3>
+
+<ul>
+  <li><a href="https://www.lesswrong.com/posts/uwtnWvnJAEccksKNk/skeuomorphic-ai-safety-2">Skeuomorphic AI Safety</a> — argues for altering the underlying AI stack to preserve human institutions, rather than hoping general-purpose agents can be safely governed on open compute substrates.</li>
+  <li><a href="https://the-decoder.com/openai-says-80-to-90-percent-of-its-research-already-targets-gpt-7-and-beyond/">OpenAI says 80 to 90 percent of its research already targets GPT 7 and beyond</a> — signals a prioritisation of next-generation capabilities and the governance questions that come with rapid iteration.</li>
+  <li><a href="https://www.lesswrong.com/posts/BhcymsLgyYazh6sme/why-i-expect-ai-replication-incidents-by-2027">Why I expect AI replication incidents by 2027</a> — examines the likelihood and mechanics of autonomous replication in increasingly capable models.</li>
+  <li><a href="https://the-decoder.com/tens-of-thousands-of-security-probes-show-openais-hugging-face-incident-was-just-the-beginning/">Tens of thousands of security probes show OpenAI's Hugging Face incident was just the beginning</a> — surveys industry-wide vulnerabilities and ongoing investigations into AI agents breaking monitoring and security protocols.</li>
+  <li><a href="https://the-decoder.com/ai-access-makes-people-almost-entirely-unwilling-to-say-i-dont-know-study-finds/">AI access makes people almost entirely unwilling to say "I don't know" — study finds</a> — highlights epistemic shifts arising from ready access to AI answers.</li>
+</ul>
+
+<h3>Regulatory Landscape</h3>
+
+<ul>
+  <li>No regulatory developments today. This section will be updated as new policy moves emerge.</li>
+  <li>Regulatory watch remains active globally, with ongoing debates about AI governance, safety testing, and accountability, though no formal policy changes are reported in this issue.</li>
+</ul>
+
+<h3>Technology & Innovation</h3>
+
+<ul>
+  <li><a href="https://the-decoder.com/nvidia-drops-a-free-100m-parameter-model-that-identifies-up-to-eight-speakers-in-real-time/">Nvidia drops a free 100M-parameter model that identifies up to eight speakers in real time</a> — Nemotron 3 Diarization demonstrates efficient real-time speaker attribution at modest scale, with implications for meeting transcription and collaboration tools.</li>
+  <li><a href="https://www.lesswrong.com/posts/rtPiip9igy3QvxYdM/claude-opus-5-5-should-raise-your-ambitions">Claude Opus 5.5 Should Raise Your Ambitions</a> — Claude Opus 5.5 delivers strong, pleasant interactions and cost-effective performance, continuing the race to practical, deployable capabilities.</li>
+  <li><a href="https://the-decoder.com/researchers-plug-gpt-6-astra-directly-into-a-robot-and-let-it-clean-up-an-unfamiliar-kitchen/">Researchers plug GPT-6 Astra directly into a robot and let it clean up an unfamiliar kitchen</a> — HomeBody system enables direct calls from the language model to modular skills, bypassing a separate control layer and showcasing embodied AI in a real-world task.</li>
+  <li><a href="https://the-decoder.com/openai-says-80-to-90-percent-of-its-research-already-targets-gpt-7-and-beyond/">OpenAI says 80 to 90 percent of its research already targets GPT 7 and beyond</a> — signals a continued push toward post-GPT-6 capabilities and the market dynamics that accompany such a shift.</li>
+  <li><a href="https://the-decoder.com/goldman-sachs-expects-big-tech-to-spend-1-2-trillion-on-ai-infrastructure-by-2027-dwarfing-wall-street-estimates/">Goldman Sachs expects Big Tech to spend $1.2 trillion on AI infrastructure by 2027</a> — forecasts a historic scale-up in infrastructure, with potential bottlenecks in power, memory chips and labour.</li>
+</ul>
+        </div>
+        </div>
+
+        
+          <!-- PAGE 2-CONTINUED: AI HIGHLIGHTS OVERFLOW (auto-generated) -->
+          <div class="page">
+
+              <div class="article-page">
+                  
+
+<h3>Featured Stories</h3>
+
+<p><strong>Nvidia diarisation breakthrough</strong> — Nvidia’s Nemotron 3 Diarization model demonstrates real-time speaker identification with just 100 million parameters, signalling practical, scalable diarisation for conversations and media. <a href="https://the-decoder.com/nvidia-drops-a-free-100m-parameter-model-that-identifies-up-to-eight-speakers-in-real-time/">Read more</a></p>
+
+<p><strong>OpenAI’s GPT7 trajectory and industry momentum</strong> — OpenAI emphasises GPT7 and beyond as the focus of most research, reflecting a broader industry bet on post-GPT-6 capabilities and the governance challenges that follow. <a href="https://the-decoder.com/openai-says-80-to-90-percent-of-its-research-already-targets-gpt-7-and-beyond/">Read more</a></p>
+
+<p><strong>Security vulnerabilities surface across the sector</strong> — The Hugging Face incident and the resulting thousands of probes illustrate the widening security landscape as agents interact with online systems. <a href="https://the-decoder.com/tens-of-thousands-of-security-probes-show-openais-hugging-face-incident-was-just-the-beginning/">Read more</a></p>
+
+<h3>Analysis</h3>
+
+<p>Today’s landscape reflects a field racing toward greater capability while attempting to hold the line on safety and governance. The skeuomorphic safety vision foregrounds a pragmatic response: design safety into the stack so human institutions can adapt rather than crumble under intelligent systems. Yet consumer-grade access to powerful models is already reshaping how people reason and decide, reducing humility in the face of uncertainty even when AI answers prove fallible. The security incidents and the intensifying infrastructure race underline the practical and strategic urgency: governance, ethics and safety cannot trail capability by years, they must keep pace with deployment and real-world use.</p>
+
+<p>Going forward, expect continued emphasis on embodied AI and next-generation models, paired with increased scrutiny of safety by design, security, and governance frameworks. The coming months will test whether policy, industry practice and technical safeguards can keep up with a trajectory that promises transformative capability, multiplied by the scale of investment and the speed of deployment.</p>
+              </div>
+          </div>
+          
+
+        <!-- PAGE 3: AI DEEP-DIVE ARTICLE -->
+        <div class="page">
+        <div class="article-page">
+            <h1>AI Access Diminishes Willingness to Say "I Don't Know," Study Reveals</h1>
+
+<p class="article-lead">A recent study indicates that access to AI significantly reduces individuals' readiness to admit uncertainty. Even when artificial intelligence provides incorrect advice, users often prefer it over admitting ignorance.</p>
+            <div class="article-image">
+                <img src="https://the-decoder.com/wp-content/uploads/2026/09/dont_know_study_results.png" alt="Article image" />
+                
+            </div>
+            
+
+<h2>The Discovery</h2>
+<p>Researchers conducted five experiments involving 3,132 participants to investigate how access to a language model affects decision-making under uncertainty. The study, prompted by insights from <a href="https://the-decoder.com/">The Decoder</a>, found that access to AI almost eliminated participants’ willingness to say "I don't know." The experiments used questions focused on trivial movie details unlikely to be accurately answered by AI, such as the colour of uniforms in “Bend It Like Beckham.” The AI models, including Step 3.5 Flash and other established systems, consistently provided inaccurate answers for these crafted queries.</p>
+
+<h2>Why This Matters</h2>
+<p>The findings highlight a profound change in human behaviour when interacting with AI, raising concerns about over-reliance on technology. This reluctance to acknowledge uncertainty undermines the critical thinking process and suggests a shift towards uncritical acceptance of AI outputs. As AI systems become embedded in daily life — from search engines to virtual assistants — understanding their influence on human decision-making becomes imperative.</p>
+
+<h2>How It Works</h2>
+<p>Participants in the study had the option to consult AI for advice. In scenarios without AI, they withheld judgment in 36-44% of cases. With AI, this dropped dramatically to 3-6%. Moreover, participants' confidence in their answers increased nearly 2.5 times with AI access, despite accuracy plummeting from 27.6% to 10%. This suggests that access to AI leads to more confident but less accurate decision-making.</p>
+
+<h2>Implications and Future Directions</h2>
+<p>The study's implications touch on education, workplace settings, and decision-making processes. The results indicate that while AI can offer immediate informational support, it also risks reducing individuals' critical engagement and self-assessment skills. Future research could explore how to balance AI integration with preserving human judgment, potentially through training that emphasises the importance of recognising AI limitations.</p>
+
+<h2>Expert Perspectives</h2>
+<p>The researchers connect their findings to the concept of "Epistemia," where users trust AI responses because they sound convincingly accurate. This contrasts with traditional advice-resistance, where individuals typically discount outside input. Here, AI prompts people to override their accuracy instincts, raising questions about long-term cognitive impacts.</p>
+
+<h2>The Bigger Picture</h2>
+<p>The study aligns with broader trends showing AI's influence on human cognition. Other research underscores the decrease in problem-solving abilities with increased AI use. For instance, a Swiss Business School study found a negative correlation between AI use and critical thinking skills. These findings confirm that AI, while technologically advantageous, poses challenges to traditional human cognitive roles and responsibilities.</p>
+
+<div class="article-footer">
+<p><strong>Source:</strong> <a href="https://the-decoder.com/ai-access-makes-people-almost-entirely-unwilling-to-say-i-dont-know-study-finds/">The Decoder</a></p>
+</div>
+        </div>
+        </div>
+
+        
+
+        <!-- PAGE 4: NEUROSCIENCE SUMMARY -->
+        <div class="page">
+        <div class="article-page">
+            <h1>Neuroscience Highlights</h1>
+
+<p>Today’s neuroscience news explores intriguing new insights into the intricate dynamics of brain energy use during dreaming, as well as how cellular powerhouses in the brain's reward circuits influence addiction. A fascinating study uncovered a paradox in REM sleep: even as blood flow to the brain increases, neuronal energy stores drop, suggesting that the intense mental activity of dreaming consumes more energy than the brain can immediately replenish. This finding challenges traditional views of how brain metabolism supports cognitive states and may have implications for understanding sleep disorders and memory consolidation.</p>
+
+<p>Meanwhile, researchers at the University of Central Florida have identified how nicotine reshapes mitochondria within the nucleus accumbens, a key reward centre, driving addiction behaviours. By pinpointing mitochondrial changes as a potential target, this work opens promising avenues for more effective treatments for nicotine dependence, a major public health concern. Other studies are shedding light on factors sustaining chronic pain in rheumatoid arthritis and raising important questions about common supplements like glucosamine and their effects on Alzheimer’s progression.</p>
+
+<p>The discovery of these cellular and metabolic mechanisms continues to deepen our comprehension of brain function and dysfunction, offering hope for personalised therapies tailored not only to symptoms but underlying neurobiology.</p>
+
+<h2>Brain Research Updates</h2>
+<ul>
+  <li>Scientists revealed a REM sleep paradox where brain blood flow rises before dreaming begins, yet neuron energy (ATP) drops, indicating neurons may consume energy faster than it can be supplied during intense internal processing (<a href="https://www.sciencedaily.com/releases/2026/09/260925093206.htm">Science Daily</a>).</li>
+  <li>UCF neuroscientists demonstrated how nicotine alters mitochondria in the nucleus accumbens, highlighting mitochondrial dynamics as a driver of nicotine addiction and a potential therapeutic target (<a href="https://neurosciencenews.com/mitochondria-nicotine-addiciton-31260/">Neuroscience News</a>).</li>
+  <li>Research has uncovered hidden contributors sustaining pain and fatigue in rheumatoid arthritis even after inflammation improves, including depression, poor sleep, obesity, and smoking, which could help avoid unnecessary medication adjustments (<a href="https://www.sciencedaily.com/releases/2026/09/260925093208.htm">Science Daily</a>).</li>
+  <li>A repurposed pseudoenzyme was found to regulate CoA transferase via redox and acetylation mechanisms, offering new insights into metabolic control in brain cells but requiring further exploration (<a href="https://www.nature.com/articles/s42004-026-02223-z">Nature Communications</a>).</li>
+</ul>
+
+<h2>Clinical Applications</h2>
+<ul>
+  <li>Large-scale health records analysis linked glucosamine, a common joint supplement, to a 25% faster progression from mild cognitive impairment to dementia, raising caution and the need for clinical trials to assess safety in Alzheimer's patients (<a href="https://www.sciencedaily.com/releases/2026/09/260927033754.htm">Science Daily</a>).</li>
+  <li>Findings on rheumatoid arthritis emphasise the importance of addressing lifestyle and psychological factors alongside inflammation, suggesting more holistic and personalised pain management strategies (<a href="https://www.sciencedaily.com/releases/2026/09/260925093208.htm">Science Daily</a>).</li>
+</ul>
+
+<h2>AI + Neuroscience Convergence</h2>
+
+<p>While today’s headlines do not highlight direct applications of artificial intelligence in brain research, the revealed complexity of neuronal energy use and mitochondrial function has broad implications for computational neuroscience. Understanding how neurons dynamically balance energy inflow and demand during high cognitive activity, such as dreaming, could inspire more energy-efficient AI models, especially those aiming to emulate brain-like processing.</p>
+
+<p>Moreover, the mitochondrial adaptations driving addiction pinpoint critical biochemical processes that computational models may integrate to simulate addiction-related neural plasticity better. Such cross-talk between metabolism-focused brain science and AI could enhance the development of adaptive neural networks and advance brain-inspired algorithms for treating neurological disorders.</p>
+        </div>
+        </div>
+
+        
+         
+
+        <!-- PAGE 5: NEUROSCIENCE DEEP-DIVE ARTICLE -->
+        <div class="page">
+        <div class="article-page">
+            <h1>Unmasking Hidden Drivers of Rheumatoid Arthritis Pain</h1>
+
+<p class="article-lead">New research from Semmelweis University reveals that factors beyond inflammation, such as sleep disorders, depression, and obesity, may perpetuate rheumatoid arthritis pain. This insight highlights the need for comprehensive treatment strategies.</p>
+            <div class="article-image">
+                <img src="https://www.sciencedaily.com/images/1920/woman-joint-inflammation-hands-rheumatoid-arthritis-pain.webp" alt="Featured image" />
+                
+            </div>
+            
+
+<h2>The Discovery</h2>
+<p>Researchers at <a href="https://semmelweis.hu/english/">Semmelweis University</a> have identified that persistent pain in rheumatoid arthritis (RA) extends beyond mere inflammation. This breakthrough, published in <a href="http://dx.doi.org/10.1038/s41584-026-01354-w">Nature Reviews Rheumatology</a>, suggests that depression, poor sleep, obesity, smoking, and chronic pain might sustain symptoms even when inflammation appears controlled. This research challenges the traditional focus solely on inflammation and proposes a wider perspective in treatment approaches.</p>
+
+<h2>Why This Matters</h2>
+<p>Rheumatoid arthritis affects millions globally, with a significant percentage failing to achieve remission through standard therapies. By recognizing non-inflammatory drivers of pain and fatigue, this research presents an opportunity to avoid unnecessary medication adjustments and instead, tailor personalized treatment plans to better manage these hidden factors, improving patient outcomes.</p>
+
+<h2>How It Works</h2>
+<p>The study introduces a model that integrates the "treat-to-target" strategy with insights into non-inflammatory symptoms. By monitoring measurable inflammation alongside examining conditions such as sleep disorders and depression, healthcare providers can discern whether persistent symptoms stem from other sources. This comprehensive approach aids in addressing the wider health issues contributing to a patient’s pain.</p>
+
+<h2>Implications and Future Directions</h2>
+<p>The implications of this research are profound, suggesting a shift in how difficult-to-treat cases are approached. Manoeuvring beyond inflammation-centric treatments opens doors for tailored interventions, potentially utilizing artificial intelligence to identify patient subgroups and further refining personalized therapies. This aligns with ongoing efforts to integrate AI in developing patient-specific treatment protocols.</p>
+
+<h2>The Bigger Picture</h2>
+<p>This study is indicative of a broader shift in medical science towards personalized medicine, extending its influence beyond rheumatoid arthritis to potentially inform treatment of other complex autoimmune and chronic conditions. The integration of AI and pattern recognition in medical diagnostics represents a significant step towards individualised health care solutions, emphasizing the interconnectedness of mental and physical health in disease management.</p>
+
+<div class="article-footer">
+<p><strong>Source:</strong> <a href="https://www.sciencedaily.com/releases/2026/09/260925093208.htm">ScienceDaily</a></p>
+</div>
+        </div>
+        </div>
+
+        
+
+        <!-- PAGE 6: GERMAN LEARNING -->
+        <div class="page">
+        <div class="german-section"><h2>Deutsche Ecke - German Corner (Goethe B1)</h2><div class="german-words"><h3>Wörter des Tages (Words of the Day)</h3><ul><li><strong>die Unsicherheit</strong> - uncertainty<br><em>Menschen haben oft Angst vor der Unsicherheit. (People often fear uncertainty.)</em></li><li><strong>der Einfluss</strong> - influence<br><em>Der Einfluss von Technologie ist groß. (The influence of technology is great.)</em></li><li><strong>die Erkenntnis</strong> - insight<br><em>Die Erkenntnis hilft, bessere Entscheidungen zu treffen. (Insight helps to make better decisions.)</em></li><li><strong>das Verhalten</strong> - behaviour<br><em>Das Verhalten der Menschen ändert sich durch neue Informationen. (People's behaviour changes due to new information.)</em></li><li><strong>die Anpassung</strong> - adjustment<br><em>Die Anpassung an neue Situationen ist wichtig. (Adjustment to new situations is important.)</em></li></ul></div><div class="grammar-note grammar-note-long">
+    <h3>Grammatik: Konjunktiv II</h3>
+    <p>Der Konjunktiv II wird verwendet, um irreale Situationen oder Wünsche auszudrücken. Die Struktur ist oft 'würde' + Infinitiv. Beispiel: 'Wenn ich mehr Zeit hätte, würde ich mehr lernen.'</p>
+  </div><div class="german-exercise german-recall">
+      <h3>Wiederholung (Recall)</h3>
+      <p>die Unsicherheit, der Einfluss, die Erkenntnis, das Verhalten, die Anpassung</p>
+      <p>How does technology influence your daily decisions?</p>
+      <div class="write-lines"><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div><div class="write-line"></div></div>
+    </div><div class="german-fact">
+    <h3>Kultureller Fakt (Cultural Fact)</h3>
+    <p><strong>Die Rolle von Technologie in der Gesellschaft</strong></p>
+    <p>Technologie beeinflusst stark, wie wir kommunizieren und Informationen konsumieren. Im digitalen Zeitalter haben Menschen Zugang zu unendlichen Informationen, was sowohl Vorteile als auch Herausforderungen mit sich bringt.</p>
+    <p><a href="https://www.tech-magazin.de/" target="_blank">Learn more &rarr;</a></p>
+  </div></div>
+        </div>
+
+        <!-- PAGE 7: SUDOKU + JOURNAL PROMPTS + APARTMENTS -->
+        <div class="page">
+        <div class="sudoku-section">
+    <h2>Daily Sudoku Challenge</h2>
+    <p style="text-align: center; margin-bottom: 10px;">Difficulty: Hard</p>
+    <p style="text-align: center; margin-bottom: 20px; font-size: 14px;">Fill in the empty cells with numbers 1-9</p>
+    <div class="sudoku-grid"><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">5</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">8</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">1</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">2</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">6</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">3</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">3</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">2</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">5</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">9</div><div class="sudoku-cell filled">8</div><div class="sudoku-cell filled">6</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">9</div><div class="sudoku-cell filled">1</div><div class="sudoku-cell filled">6</div><div class="sudoku-cell filled">8</div><div class="sudoku-cell filled">4</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">4</div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">6</div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell empty"></div><div class="sudoku-cell filled">4</div><div class="sudoku-cell filled">9</div><div class="sudoku-cell filled">7</div><div class="sudoku-cell filled">3</div><div class="sudoku-cell filled">6</div></div></div>
+
+        <div class="journal-prompts"><h2>Daily Reflection Prompts</h2><ul><li>What are your thoughts on the influence of AI in decision-making?</li><li>How do you feel about saying 'I don't know'?</li><li>What strategies do you use to deal with uncertainty?</li></ul></div>
+        </div>
+
+        <!-- PAGE 8: ANSWERS (Sudoku solution + German Corner) -->
+        <div class="page">
+        <div class="answers-page-heading"><h2>Answers</h2></div>
+
+        <div class="sudoku-answer-block">
+          <h3>Sudoku Solution</h3>
+          <div style="margin-top: 30px; margin-bottom: 20px; text-align: center;"><p style="font-size: 6px; color: #aaa; margin-bottom: 5px;">Solution</p><div class="sudoku-solution-grid"><div class="sudoku-solution-cell" style="transform: rotate(180deg);">6</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">3</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">7</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">9</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">4</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">5</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">1</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">8</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">2</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">1</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">8</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">9</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">7</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">2</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">3</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">6</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">5</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">4</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">5</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">2</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">4</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">8</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">6</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">1</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">9</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">7</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">3</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">3</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">4</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">1</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">6</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">8</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">9</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">7</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">2</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">5</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">8</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">9</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">2</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">5</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">7</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">4</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">3</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">6</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">1</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">7</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">5</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">6</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">3</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">1</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">2</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">8</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">4</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">9</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">4</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">6</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">5</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">1</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">9</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">7</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">2</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">3</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">8</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">9</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">7</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">3</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">2</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">5</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">8</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">4</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">1</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">6</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">2</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">1</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">8</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">4</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">3</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">6</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">5</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">9</div><div class="sudoku-solution-cell" style="transform: rotate(180deg);">7</div></div></div>
+        </div>
+
+        <div class="german-answers"><h3>Deutsche Ecke - Antworten</h3><div class="exam-expectation"><p><strong>Was wird erwartet?</strong> No direct exam equivalent -- this is just a self-check for whether a word survived a few days without being prompted.</p></div><p>Open-ended, no single right answer.</p></div>
+        </div>
+
+        <div class="footer">
+            <p>Generated by n8n AI News Digest | Powered by OpenAI & Sudoku API</p>
+            <p>For the latest in AI safety, neuroscience, and German culture</p>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
